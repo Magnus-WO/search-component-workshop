@@ -1,0 +1,72 @@
+@font-face {
+  font-family: raleway;
+  src: url(../assets/fonts/Raleway-Regular.ttf);
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+
+  font-family: raleway;
+  background-color: var(--color-primary);
+}
+
+main {
+  width: 100%;
+  height: inherit;
+}
+.search {
+  background-color: var(--color-secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: var(--spacing-small);
+  padding: var(--spacing-xlarge) 0;
+}
+
+.search label {
+  font-size: var(--font-size-medium);
+}
+
+.search__input {
+  min-width: 150px;
+  width: 250px;
+  height: 32px;
+  font-family: inherit;
+
+  padding: 0 var(--spacing-small);
+  border: none;
+  border-radius: var(--border-radius);
+}
+
+/* ----------------------------------- */
+
+.countries {
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+  gap: var(--spacing-medium);
+  padding: var(--spacing-xlarge) var(--spacing-medium);
+  justify-self: center;
+}
+
+.card {
+  background-color: var(--color-secondary);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-large) var(--spacing-medium);
+}
+
+.flag-container {
+  display: block;
+  text-align: center;
+  font-size: var(--font-size-xlarge);
+}
+
+.description-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-small);
+}

@@ -119,4 +119,68 @@ const countries = [
     isLandlocked: false,
     flag: "🇵🇹",
   },
+  {
+    name: "Portugal",
+    continent: "Europe",
+    capital: "Lisbon",
+    population: 10200000,
+    isLandlocked: false,
+    flag: "🇵🇹",
+  },
 ];
+
+const countriesContainer = document.querySelector(".countries");
+const searchInput = document.querySelector(".search__input");
+
+document.addEventListener("DOMContentLoaded", () => renderCountries(countries));
+
+// ------------------------------------------------------------
+
+function renderCountries(countriesArray) {
+  countriesContainer.textContent = "";
+  countriesArray.forEach((country) => {
+    const card = document.createElement("div");
+    card.classList.add("card");
+
+    const flagContainer = document.createElement("span");
+    flagContainer.classList.add("flag-container");
+
+    const descriptionContainer = document.createElement("span");
+    descriptionContainer.classList.add("description-container");
+
+    const countryName = document.createElement("p");
+    const countryContinent = document.createElement("p");
+    const countryCapital = document.createElement("p");
+    const countryPopulation = document.createElement("p");
+    const countryLandLocked = document.createElement("p");
+
+    // Appending elements
+    countriesContainer.append(card);
+    card.append(flagContainer, descriptionContainer);
+    descriptionContainer.append(
+      countryName,
+      countryContinent,
+      countryCapital,
+      countryPopulation,
+      countryLandLocked
+    );
+    // insert content
+    flagContainer.textContent = country.flag;
+    countryName.textContent = `Name: ${country.name}`;
+    countryContinent.textContent = `Continent: ${country.continent}`;
+    countryCapital.textContent = `Capital: ${country.capital}`;
+    countryPopulation.textContent = `Population: ${country.population}`;
+    countryLandLocked.textContent = `Landlocked: ${
+      country.isLandlocked ? "Yes" : "No"
+    }`;
+  });
+}
+
+searchInput.addEventListener("input", (e) => {
+  let filteredCountries = [...countries];
+  filteredCountries = filteredCountries.filter((country) => {
+    return country.name.toLowerCase().startsWith(e.target.value.toLowerCase());
+  });
+
+  renderCountries(filteredCountries);
+});
